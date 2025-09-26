@@ -66,6 +66,4 @@ your-project/
 
 **Plot errors**: Check that selected columns have compatible data types
 
----
 
-**Ready to visualize? Just run `streamlit run app.py` and upload your data! 🚀**
