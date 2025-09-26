@@ -79,7 +79,7 @@ from plotly.subplots import make_subplots
 import warnings
 warnings.filterwarnings('ignore')
 
-with st.expander(" Comprehensive Data Visualization"):
+with st.expander(" Data Visualization"):
     if 'df' in locals():
         st.write("### Smart Visualization Generator")
         
@@ -349,3 +349,4 @@ with st.expander(" Comprehensive Data Visualization"):
     else:
         st.warning("⚠️ Please upload a dataset first to see visualizations.")
         st.info("💡 The visualization tool will automatically detect your data types and suggest the best plots!")
+
