@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -349,3 +347,4 @@ with st.expander(" Comprehensive Data Visualization"):
     else:
         st.warning("⚠️ Please upload a dataset first to see visualizations.")
         st.info("💡 The visualization tool will automatically detect your data types and suggest the best plots!")
+
