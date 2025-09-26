@@ -151,7 +151,7 @@ with st.expander(" Data Visualization"):
                     st.plotly_chart(fig, use_container_width=True)
                 
                 # Show statistics
-                with st.expander(f"📈 Statistics for {single_col}"):
+                with st.expander(f"Statistics for {single_col}"):
                     if single_col in numeric_cols:
                         stats_df = pd.DataFrame({
                             'Statistic': ['Count', 'Mean', 'Std', 'Min', '25%', '50%', '75%', 'Max'],
@@ -349,4 +349,5 @@ with st.expander(" Data Visualization"):
     else:
         st.warning("⚠️ Please upload a dataset first to see visualizations.")
         st.info("💡 The visualization tool will automatically detect your data types and suggest the best plots!")
+
 
