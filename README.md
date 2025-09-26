@@ -48,8 +48,7 @@ streamlit run app.py
 ```
 your-project/
 ├── app.py              # Main Streamlit application
-├── requirements.txt    # Dependencies
-└── data/              # Your datasets (CSV, Excel)
+└── data/              # Your datasets (CSV, Excel...etc)
 ```
 
 ## 💡 Pro Tips
