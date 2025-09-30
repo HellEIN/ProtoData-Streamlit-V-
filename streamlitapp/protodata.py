@@ -486,26 +486,28 @@ with st.expander("Machine Learning Models", expanded=st.session_state.model_trai
                             st.write("### Model Performance")
                             
                             col1, col2 = st.columns(2)
+                                
                             with col1:
-                                st.metric("Training R² Score", f"{train_r2:.4f}")
-                                st.metric("Training RMSE", f"{train_rmse:.4f}")
-                            with col2:
                                 st.metric("Test R² Score", f"{test_r2:.4f}")
                                 st.metric("Test RMSE", f"{test_rmse:.4f}")
+                                st.metric("Intercept", f"{model.intercept_:.4f}")
                             
+                            with col2:
+                                st.metric("Training R² Score", f"{train_r2:.4f}")
+                                st.metric("Training RMSE", f"{train_rmse:.4f}")
                             # Feature importance
                             st.write("### Feature Importance")
+
                             feature_importance = pd.DataFrame({
                                 'Feature': feature_cols,
                                 'Coefficient': model.coef_,
-                                'Abs_Coefficient': np.abs(model.coef_)
-                            }).sort_values('Abs_Coefficient', ascending=False)
+                            }).sort_values('Coefficient', ascending=False)
                             
                             fig_importance = px.bar(feature_importance, 
-                                                    x='Abs_Coefficient', 
+                                                    x='Coefficient', 
                                                     y='Feature', 
                                                     orientation='h',
-                                                    title="Feature Importance (Absolute Coefficients)")
+                                                    title="Feature Importance (Coefficients)")
                             st.plotly_chart(fig_importance, use_container_width=True)
                             
                             # Predictions vs Actual plot
@@ -696,8 +698,8 @@ with st.expander("Machine Learning Models", expanded=st.session_state.model_trai
                                 feature_importance = pd.DataFrame({
                                     'Feature': feature_cols,
                                     'Coefficient': model.coef_[0],
-                                    'Abs_Coefficient': np.abs(model.coef_[0])
-                                }).sort_values('Abs_Coefficient', ascending=False)
+                                    'Coefficient': model.coef_[0]
+                                }).sort_values('Coefficient', ascending=False)
                                 
                                 fig_importance = px.bar(feature_importance, 
                                                         x='Coefficient', 
@@ -715,8 +717,8 @@ with st.expander("Machine Learning Models", expanded=st.session_state.model_trai
                                     feature_importance = pd.DataFrame({
                                         'Feature': feature_cols,
                                         'Coefficient': model.coef_[i],
-                                        'Abs_Coefficient': np.abs(model.coef_[i])
-                                    }).sort_values('Abs_Coefficient', ascending=False)
+                                        'Coefficient': model.coef_[i]
+                                    }).sort_values('Coefficient', ascending=False)
                                     
                                     with st.expander(f"Coefficients for class: {class_name}"):
                                         fig_importance = px.bar(feature_importance, 
