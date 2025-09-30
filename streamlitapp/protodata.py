@@ -766,71 +766,8 @@ with st.expander("Machine Learning Models", expanded=st.session_state.model_trai
                             st.write("**Possible issues:**")
                             st.write("- Insufficient data for the number of classes")
                             st.write("- All samples may belong to one class in the training split")
-                            st.write("- Features may need more preprocessing")
-        
-        # Quick Model Insights Section
-        st.write("---")
-        st.write("### 🔍 Quick Model Insights")
-        
-        insight_tabs = st.tabs(["📊 Data Quality", "🎯 Model Recommendations", "📈 Performance Tips"])
-        
-        with insight_tabs[0]:
-            st.write("**Data Quality Assessment:**")
-            
-            # Missing values
-            missing_pct = (df.isnull().sum() / len(df) * 100).round(2)
-            high_missing = missing_pct[missing_pct > 20]
-            
-            if not high_missing.empty:
-                st.warning(f"⚠️ Columns with >20% missing values: {', '.join(high_missing.index)}")
-            else:
-                st.success("✅ No columns with excessive missing values")
-            
-            # Data types
-            st.write(f"📊 **Dataset composition:** {len(numeric_cols)} numeric, {len(categorical_cols)} categorical columns")
-            
-            # Dataset size
-            if len(df) < 100:
-                st.warning("⚠️ Small dataset (<100 rows) - results may not be reliable")
-            elif len(df) < 1000:
-                st.info("💡 Medium dataset - consider cross-validation for better estimates")
-            else:
-                st.success("✅ Good dataset size for machine learning")
-        
-        with insight_tabs[1]:
-            st.write("**Model Selection Guide:**")
-            
-            if len(numeric_cols) >= 1:
-                st.write("**For predicting numeric values:**")
-                st.write("• 📈 **Linear Regression** - Best for linear relationships")
-                st.write("• 🌳 **Random Forest** - Good for non-linear relationships (not implemented yet)")
-            
-            if len(categorical_cols) >= 1 or df[target_col].nunique() < 20:
-                st.write("**For predicting categories:**")
-                st.write("• 📊 **Logistic Regression** - Good baseline, interpretable")
-                st.write("• 🌳 **Random Forest** - Better for complex patterns (not implemented yet)")
-            
-            st.info("💡 **Tip:** Start with simpler models (Linear/Logistic Regression) to establish baselines!")
-        
-        with insight_tabs[2]:
-            st.write("**Performance Improvement Tips:**")
-            
-            st.write("**📊 Data Preprocessing:**")
-            st.write("• Handle missing values appropriately")
-            st.write("• Scale/normalize numeric features")
-            st.write("• Encode categorical variables properly")
-            st.write("• Remove or transform outliers")
-            
-            st.write("**🎯 Feature Engineering:**")
-            st.write("• Create interaction terms between features")
-            st.write("• Transform skewed distributions")
-            st.write("• Select relevant features")
-            
-            st.write("**🔍 Model Validation:**")
-            st.write("• Use cross-validation for robust estimates")
-            st.write("• Check for overfitting (training vs test performance)")
-            st.write("• Validate assumptions (linearity, normality, etc.)")
-        
+                            st.write("- Features may need more preprocessing"
+                                     
     else:
         st.warning("⚠️ Please upload a dataset first to use machine learning models.")
         st.info("💡 **Machine Learning Features:**")
@@ -840,6 +777,7 @@ with st.expander("Machine Learning Models", expanded=st.session_state.model_trai
         st.write("• **Performance metrics** - R², RMSE, Accuracy, Confusion Matrix")
         st.write("• **Feature importance** - Understand which features matter most")
         st.write("• **Visualizations** - Residual plots, prediction vs actual, probability distributions")
+
 
 
 
