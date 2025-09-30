@@ -766,18 +766,7 @@ with st.expander("Machine Learning Models", expanded=st.session_state.model_trai
                             st.write("**Possible issues:**")
                             st.write("- Insufficient data for the number of classes")
                             st.write("- All samples may belong to one class in the training split")
-                            st.write("- Features may need more preprocessing"
-                                     
+                            st.write("- Features may need more preprocessing")
+        
     else:
-        st.warning("⚠️ Please upload a dataset first to use machine learning models.")
-        st.info("💡 **Machine Learning Features:**")
-        st.write("• **Linear Regression** - Predict continuous values")
-        st.write("• **Logistic Regression** - Classify categories")  
-        st.write("• **Automatic preprocessing** - Handle missing values and encoding")
-        st.write("• **Performance metrics** - R², RMSE, Accuracy, Confusion Matrix")
-        st.write("• **Feature importance** - Understand which features matter most")
-        st.write("• **Visualizations** - Residual plots, prediction vs actual, probability distributions")
-
-
-
-
+            st.warning("⚠️ Please upload a dataset first to train models.")
