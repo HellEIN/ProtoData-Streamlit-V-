@@ -108,7 +108,7 @@ with st.expander("Data Summary"):
         st.warning("Please upload a dataset to see the summary.")
 
 # Data visualization
-with st.expander("Comprehensive Data Visualization"):
+with st.expander("Data Visualization"):
     if 'df' in locals() and df is not None:
         st.write("### Smart Visualization Generator")
         
@@ -772,3 +772,4 @@ with st.expander("Machine Learning Models", expanded=st.session_state.model_trai
         
     else:
             st.warning("⚠️ Please upload a dataset first to train models.")
+
