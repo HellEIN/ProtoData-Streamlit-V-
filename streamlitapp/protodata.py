@@ -490,7 +490,7 @@ with st.expander("Machine Learning Models", expanded=st.session_state.model_trai
                             with col1:
                                 st.metric("Test R² Score", f"{test_r2:.4f}")
                                 st.metric("Test RMSE", f"{test_rmse:.4f}")
-                                st.metric("Intercept", f"{model.intercept_:.4f}")
+                                st.metric("Intercept", f"{model.intercept_:.5f}")
                             
                             with col2:
                                 st.metric("Training R² Score", f"{train_r2:.4f}")
@@ -772,4 +772,5 @@ with st.expander("Machine Learning Models", expanded=st.session_state.model_trai
         
     else:
             st.warning("⚠️ Please upload a dataset first to train models.")
+
 
